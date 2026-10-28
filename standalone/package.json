@@ -1,0 +1,66 @@
+{
+  "name": "whale-girl-obs",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test backend/*.test.js stage/*.test.js",
+    "dist:win": "electron-builder --win --x64 --publish never"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.whalegirl.obs",
+    "productName": "Whale Girl OBS",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.cjs",
+      "preload.cjs",
+      "backend/**",
+      "ui/**",
+      "stage/**",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "../assets/model",
+        "to": "assets/model"
+      },
+      {
+        "from": "../assets/vendor",
+        "to": "assets/vendor"
+      },
+      {
+        "from": "../NOTICE.md",
+        "to": "licenses/NOTICE.md"
+      },
+      {
+        "from": "../PROVENANCE.md",
+        "to": "licenses/PROVENANCE.md"
+      },
+      {
+        "from": "../AUTHORS.md",
+        "to": "licenses/AUTHORS.md"
+      },
+      {
+        "from": "../LICENSE",
+        "to": "licenses/LICENSE"
+      }
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "signAndEditExecutable": false
+    }
+  },
+  "dependencies": {
+    "ws": "^8.22.0"
+  }
+}

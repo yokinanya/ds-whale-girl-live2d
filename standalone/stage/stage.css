@@ -1,0 +1,12 @@
+html, body, #stage { width: 100%; height: 100%; margin: 0; overflow: hidden; background: transparent; }
+#stage { position: relative; }
+canvas { display: block; width: 100%; height: 100%; }
+#bubble {
+  position: absolute; z-index: 1; left: 50%; top: 2%; transform: translateX(-50%);
+  box-sizing: border-box; max-width: min(80%, 600px); max-height: 22%; overflow: hidden;
+  padding: 0.55em 0.85em; border: 2px solid #6d5364; border-radius: 1em;
+  background: rgba(255, 255, 255, 0.95); color: #352c36;
+  font: 600 clamp(16px, 2.5vw, 30px)/1.4 sans-serif;
+  white-space: pre-wrap; overflow-wrap: anywhere; text-align: center;
+}
+#bubble[hidden] { display: none; }
